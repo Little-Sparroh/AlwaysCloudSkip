@@ -7,12 +7,12 @@ using BepInEx.Logging;
 using HarmonyLib;
 
 [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-[MycoMod(null, ModFlags.IsClientSide)]
+[MycoMod(null, ModFlags.IsSandbox)]
 public class SparrohPlugin : BaseUnityPlugin
 {
     public const string PluginGUID = "sparroh.alwayscloudskip";
     public const string PluginName = "AlwaysCloudSkip";
-    public const string PluginVersion = "1.0.0";
+    public const string PluginVersion = "1.0.1";
 
     internal static new ManualLogSource Logger;
     internal static ConfigEntry<bool> enableCloudSkip;
