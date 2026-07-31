@@ -4,54 +4,70 @@ A BepInEx mod for Mycopunk that enables Cloud Skip (double jump) at all times.
 
 ## Features
 
-- **Always Cloud Skip**: Grants an air jump and sets air jump speed so Cloud Skip is available without needing the upgrade active.
+- **Always Cloud Skip** — Grants an air jump and sets air jump speed so Cloud Skip is available without the upgrade.
+- **Config toggle** — Enable or disable the effect from the BepInEx config file.
+- **Hot-reload** — Config changes apply while the game is running (no restart required).
+- **Clean disable** — Restores your original air jump values when the toggle is turned off.
+- **Local player only** — Does not affect other players in multiplayer.
 
-## Getting Started
+## Dependencies
 
-### Dependencies
+- Mycopunk
+- [BepInEx](https://github.com/BepInEx/BepInEx) 5.4.2403 or compatible (e.g. BepInExPack_Mycopunk)
 
-* Mycopunk (base game)
-* [BepInEx](https://github.com/BepInEx/BepInEx) - Version 5.4.2403 or compatible
-* .NET Framework 4.8
-* [HarmonyLib](https://github.com/pardeike/Harmony) (included via NuGet)
+## Building
 
-### Building/Compiling
+1. Clone this repository.
+2. Open the solution in Visual Studio, Rider, or another C# IDE.
+3. Build in Release mode to produce `AlwaysCloudSkip.dll`.
 
-1. Clone this repository
-2. Open the solution file in Visual Studio, Rider, or your preferred C# IDE
-3. Build the project in Release mode to generate the .dll file
+Or with the .NET CLI:
 
-Alternatively, use dotnet CLI:
 ```bash
 dotnet build --configuration Release
 ```
 
-### Installing
+The project targets `netstandard2.1`.
 
-**Via Thunderstore (Recommended)**:
-1. Download and install via Thunderstore Mod Manager
-2. The mod will be automatically installed to the correct directory
+## Installing
 
-**Manual Installation**:
-1. Place the built `AlwaysCloudSkip.dll` in your `<Mycopunk Directory>/BepInEx/plugins/` folder
+**Thunderstore (recommended)**
 
-### Executing program
+1. Install via the Thunderstore Mod Manager.
+2. The mod is placed in the correct directory automatically.
 
-The mod loads automatically through BepInEx when the game starts. Check the BepInEx console for loading confirmation messages.
+**Manual**
+
+1. Install BepInEx for Mycopunk.
+2. Copy `AlwaysCloudSkip.dll` into `<Mycopunk Directory>/BepInEx/plugins/`.
+
+## Usage
+
+The mod loads automatically with BepInEx when the game starts. Confirm it loaded in the BepInEx log:
+
+```text
+AlwaysCloudSkip v1.0.1 loaded successfully.
+```
 
 ## Configuration
 
-Access mod settings through the BepInEx configuration file at `<Mycopunk Directory>/BepInEx/config/sparroh.alwayscloudskip.cfg`:
+Settings live in:
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| Enable Cloud Skip | `true` | Enables Cloud Skip (double jump) at all times. |
+```text
+<Mycopunk Directory>/BepInEx/config/sparroh.alwayscloudskip.cfg
+```
+
+| Setting           | Default | Description                                    |
+|-------------------|---------|------------------------------------------------|
+| Enable Cloud Skip | `true`  | Enables Cloud Skip (double jump) at all times. |
+
+Changes are hot-reloaded while the game is open.
 
 ## Help
 
-* **Mod not loading?** Verify BepInEx is installed correctly and check console logs for errors
-* **Cloud Skip not working?** Ensure the config option is set to `true`. Config changes are hot-reloaded while the game is open.
-
+- **Mod not loading?** Confirm BepInEx is installed and check the BepInEx console/log for errors.
+- **Cloud Skip not working?** Set `Enable Cloud Skip` to `true`. Edits to the config file are picked up without
+  restarting.
 
 ## Authors
 
@@ -59,4 +75,4 @@ Access mod settings through the BepInEx configuration file at `<Mycopunk Directo
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

@@ -1,8 +1,8 @@
+using System.Reflection;
 using HarmonyLib;
 using Pigeon.Movement;
-using System.Reflection;
 
-static class AlwaysCloudSkipPatches
+internal static class AlwaysCloudSkipPatches
 {
     private static readonly FieldInfo airJumpsField = AccessTools.Field(typeof(Player), "airJumps");
     private static readonly FieldInfo airJumpUpSpeedField = AccessTools.Field(typeof(Player), "airJumpUpSpeed");
@@ -17,7 +17,7 @@ static class AlwaysCloudSkipPatches
     {
         if (!__instance.IsLocalPlayer) return true;
 
-        bool enabled = SparrohPlugin.enableCloudSkip != null && SparrohPlugin.enableCloudSkip.Value;
+        var enabled = ConfigManager.EnableCloudSkip != null && ConfigManager.EnableCloudSkip.Value;
 
         if (enabled)
         {
